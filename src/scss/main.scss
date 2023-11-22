@@ -1,0 +1,54 @@
+$base-color: #393f46;
+$text-color: #ffd700;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.nav {
+  a {
+    background-color: $base-color;
+    color: $text-color;
+    img {
+      width: auto;
+      height: 50%;
+    }
+  }
+}
+
+.main {
+  .background {
+    height: 50vh;
+    background-image: url(../../images/Background.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: -2px 3px 40px 14px rgba(0, 0, 0, 1) inset;
+    -webkit-box-shadow: -2px 3px 40px 14px rgba(0, 0, 0, 1) inset;
+    -moz-box-shadow: -2px 3px 40px 14px rgba(0, 0, 0, 1) inset;
+  }
+  background-color: $base-color;
+  .bg-image {
+    background-image: url(../../images/LogoSP2.png);
+    height: 50vh;
+    width: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .card {
+    background-color: $base-color;
+    color: $text-color;
+    height: 50%;
+    width: 25vw;
+
+    a {
+      color: $base-color;
+      background-color: #e9d14c;
+      border-radius: 10px;
+      padding: 5px;
+      text-decoration: none;
+      align-self: flex-end;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BidScape</title>
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <script src="./dist/popper.min.js"></script>
+    <link rel="stylesheet" href="./dist/css/bootstrap.min.css" />
+    <script src="./dist/bootstrap.min.js"></script>
+    <script src="./js/index.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-2 px-5">
+      <a class="navbar-brand" href="#">BidScape</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExample04"
+        aria-controls="navbarsExample04"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active justify-content-center align-items-center">
+            <a class="nav-link" href="#">Auctions</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+
+          <div class="dropdown-menu" aria-labelledby="dropdown04">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="background"></div>
+      <div class="container justify-content-center align-items-center">
+        <div class="row d-flex flex-row">
+          <div class="col-6 bg-image"></div>
+          <div
+            class="col-6 d-flex p-5 gap-5 justify-content-evenly align-items-center"
+          >
+            <div class="card col-3 d-flex rounded" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Just Looking?</h5>
+
+                <p class="card-text">Browse as guest without logging in</p>
+                <a href="#" class="card-link">Browse</a>
+              </div>
+            </div>
+
+            <div class="card col-3 d-flex rounded" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Interrested?</h5>
+
+                <p class="card-text">Create an account or log in</p>
+                <a href="#" class="card-link">Log in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
