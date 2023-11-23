@@ -1,10 +1,12 @@
 $base-color: #393f46;
 $text-color: #ffd700;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .nav {
   a {
     background-color: $base-color;
@@ -26,21 +28,68 @@ $text-color: #ffd700;
     box-shadow: -2px 3px 40px 14px rgba(0, 0, 0, 1) inset;
     -webkit-box-shadow: -2px 3px 40px 14px rgba(0, 0, 0, 1) inset;
     -moz-box-shadow: -2px 3px 40px 14px rgba(0, 0, 0, 1) inset;
+    width: auto;
   }
+
   background-color: $base-color;
+
+  .container-fluid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; // Ensure items stretch to the same height
+    width: 100%;
+
+    @media (max-width: 768px) {
+      flex-direction: column; // Stack items vertically on small screens
+    }
+  }
+
+  .col-6 {
+    width: 100%; // Make col-6 take up the full width
+
+    @media (min-width: 768px) {
+      max-width: 48%; // Limit the width on larger screens
+    }
+  }
+
   .bg-image {
     background-image: url(../../images/LogoSP2.png);
-    height: 50vh;
-    width: 500px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    height: 50vh;
+    width: 50%;
+
+    @media (max-width: 768px) {
+      width: 100%; // Make the image take up the full width on small screens
+      height: 30vh; // Adjust the height for small screens
+    }
   }
+
   .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: $base-color;
     color: $text-color;
-    height: 50%;
-    width: 25vw;
+    width: 100%; // Make the card take up 100% of the row by default
+    height: 100%; // Set the height to 100% to ensure equal height
+
+    @media (min-width: 768px) {
+      width: 48%; // Limit the width on larger screens
+      height: 50%; // Set the height to 50% on larger screens
+    }
+
+    margin-top: 10px; // Add some margin between the cards
 
     a {
       color: $base-color;
@@ -50,5 +99,54 @@ $text-color: #ffd700;
       text-decoration: none;
       align-self: flex-end;
     }
+
+    &:nth-child(even) {
+      margin-top: 10px; // Add some margin to the even cards for better spacing
+    }
+  }
+}
+
+footer {
+  p {
+    color: $text-color;
+    text-align: center;
+    padding: 10px;
+  }
+
+  ul {
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+  }
+}
+.gradient-custom-2 {
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
   }
 }
