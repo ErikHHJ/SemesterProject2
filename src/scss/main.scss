@@ -44,19 +44,19 @@ $text-color: #ffd700;
   .row {
     display: flex;
     justify-content: space-between;
-    align-items: stretch; // Ensure items stretch to the same height
+    align-items: stretch;
     width: 100%;
 
     @media (max-width: 768px) {
-      flex-direction: column; // Stack items vertically on small screens
+      flex-direction: column;
     }
   }
 
   .col-6 {
-    width: 100%; // Make col-6 take up the full width
+    width: 100%;
 
     @media (min-width: 768px) {
-      max-width: 48%; // Limit the width on larger screens
+      max-width: 48%;
     }
   }
 
@@ -69,8 +69,8 @@ $text-color: #ffd700;
     width: 50%;
 
     @media (max-width: 768px) {
-      width: 100%; // Make the image take up the full width on small screens
-      height: 30vh; // Adjust the height for small screens
+      width: 100%;
+      height: 30vh;
     }
   }
 
@@ -81,15 +81,15 @@ $text-color: #ffd700;
     align-items: center;
     background-color: $base-color;
     color: $text-color;
-    width: 100%; // Make the card take up 100% of the row by default
-    height: 100%; // Set the height to 100% to ensure equal height
+    width: 100%;
+    height: 100%;
 
     @media (min-width: 768px) {
-      width: 48%; // Limit the width on larger screens
-      height: 50%; // Set the height to 50% on larger screens
+      width: 48%;
+      height: 50%;
     }
 
-    margin-top: 10px; // Add some margin between the cards
+    margin-top: 10px;
 
     a {
       color: $base-color;
@@ -101,7 +101,7 @@ $text-color: #ffd700;
     }
 
     &:nth-child(even) {
-      margin-top: 10px; // Add some margin to the even cards for better spacing
+      margin-top: 10px;
     }
   }
 }
@@ -149,4 +149,9 @@ footer {
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
   }
+}
+.login {
+  box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
+  -webkit-box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
+  -moz-box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
 }
