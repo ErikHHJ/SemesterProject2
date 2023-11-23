@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BidScape</title>
+    <script src="../dist/popper.min.js"></script>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css" />
+    <script src="../dist/bootstrap.min.js"></script>
+    <script src="./index.js" type="module" defer></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-2 px-5">
+      <a class="navbar-brand" href="#">BidScape</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExample04"
+        aria-controls="navbarsExample04"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active justify-content-center align-items-center">
+            <a class="nav-link" href="#">Auctions</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdown04"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Dropdown</a
+            >
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="h-100 gradient-form" style="background-color: #eee">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <div class="text-center">
+                      <img
+                        class="rounded-circle"
+                        src="../images/LogoSP2.png"
+                        style="width: 185px"
+                        alt="logo"
+                      />
+                      <h4 class="mt-1 mb-5 pb-1">We are BidScape.</h4>
+                    </div>
+
+                    <form id="form">
+                      <p>Register an account</p>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example22"
+                          >Username</label
+                        >
+                        <input
+                          type="text"
+                          id="username"
+                          class="form-control"
+                          placeholder="Your username"
+                        />
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="email">Email</label>
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control"
+                          placeholder="Your email"
+                        />
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example22"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control"
+                          placeholder="Your password"
+                        />
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example22"
+                          >Avatar(URL)</label
+                        >
+                        <input
+                          type="text"
+                          id="avatar"
+                          class="form-control"
+                          placeholder="Image address to your avatar"
+                        />
+                      </div>
+
+                      <div class="text-center pt-1 mb-5 pb-1">
+                        <button
+                          class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                          type="submit"
+                        >
+                          Log in
+                        </button>
+                        <a class="text-muted" href="#!">Forgot password?</a>
+                      </div>
+
+                      <div
+                        class="d-flex align-items-center justify-content-center pb-4"
+                      >
+                        <p class="mb-0 me-2">Don't have an account?</p>
+                        <button type="button" class="btn btn-outline-danger">
+                          Create new
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-6 d-flex align-items-center gradient-custom-2"
+                >
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <h4 class="mb-4">We are more than just an auctionhouse</h4>
+                    <p class="small mb-0">
+                      We are a community of people who share a passion for art
+                      and antiques. We are a place where you can find and
+                      purchase unique items. We are a place where you can sell
+                      your items to a global audience. We are a place where you
+                      can learn about art and antiques.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BidScape</title>
-    <link rel="stylesheet" href="./dist/css/main.css" />
     <script src="./dist/popper.min.js"></script>
+    <link rel="stylesheet" href="./dist/css/main.css" />
     <link rel="stylesheet" href="./dist/css/bootstrap.min.css" />
     <script src="./dist/bootstrap.min.js"></script>
     <script src="./js/index.js"></script>
@@ -34,38 +34,50 @@
             <a class="nav-link" href="#">Login</a>
           </li>
 
-          <div class="dropdown-menu" aria-labelledby="dropdown04">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdown04"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Dropdown</a
+            >
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
 
     <main class="main">
       <div class="background"></div>
-      <div class="container justify-content-center align-items-center">
-        <div class="row d-flex flex-row">
-          <div class="col-6 bg-image"></div>
-          <div
-            class="col-6 d-flex p-5 gap-5 justify-content-evenly align-items-center"
-          >
-            <div class="card col-3 d-flex rounded" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Just Looking?</h5>
 
-                <p class="card-text">Browse as guest without logging in</p>
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center"
+      >
+        <div class="row">
+          <div class="col-6 bg-image"></div>
+          <div class="col-6 d-flex justify-content-evenly align-items-center">
+            <div class="card sm-small d-flex rounded" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title small">Just Looking?</h5>
+                <p class="card-text small">
+                  Browse as a guest without logging in
+                </p>
                 <a href="#" class="card-link">Browse</a>
               </div>
             </div>
 
-            <div class="card col-3 d-flex rounded" style="width: 18rem">
+            <div class="card d-flex rounded" style="width: 18rem">
               <div class="card-body">
-                <h5 class="card-title">Interrested?</h5>
-
-                <p class="card-text">Create an account or log in</p>
-                <a href="#" class="card-link">Log in</a>
+                <h5 class="card-title small">Interested?</h5>
+                <p class="card-text small">Create an account or log in</p>
+                <a href="./login/index.html" class="card-link">Log in</a>
               </div>
             </div>
           </div>
