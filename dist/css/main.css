@@ -121,5 +121,10 @@ footer ul a {
     border-bottom-right-radius: 0.3rem;
   }
 }
+.login {
+  box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
+  -webkit-box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
+  -moz-box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
+}
 
 /*# sourceMappingURL=main.css.map */
