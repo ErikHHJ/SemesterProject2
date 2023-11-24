@@ -91,15 +91,6 @@ $text-color: #ffd700;
 
     margin-top: 10px;
 
-    a {
-      color: $base-color;
-      background-color: #e9d14c;
-      border-radius: 10px;
-      padding: 5px;
-      text-decoration: none;
-      align-self: flex-end;
-    }
-
     &:nth-child(even) {
       margin-top: 10px;
     }
@@ -154,4 +145,11 @@ footer {
   box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
   -webkit-box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
   -moz-box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
+}
+.loginBtn {
+  border: 1px solid black !important;
+}
+.text-white {
+  color: white;
+  padding: 5px !important;
 }
