@@ -9,7 +9,7 @@ export default async function register(username, email, password, avatar) {
   console.log(userLogin);
   const response = await fetch(`${baseUrl}auth/register`, {
     method: "POST",
-    body: JSON.stringify({ userLogin }),
+    body: JSON.stringify(userLogin),
     headers: {
       "Content-Type": "application/json",
     },

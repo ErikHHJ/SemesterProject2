@@ -6,9 +6,13 @@ import { addToStorage } from "./addToStorage.js";
 // If the user is successfully logged in, the token is stored in local storage.
 // If the user is not successfully logged in, an error message is displayed.
 export default async function login(email, password) {
+  const userLogin = {
+    email: `${email}`,
+    password: `${password}`,
+  };
   const response = await fetch(`${baseUrl}auth/login`, {
     method: "POST",
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify(userLogin),
     headers: {
       "Content-Type": "application/json",
     },
