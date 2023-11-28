@@ -17,6 +17,9 @@ $text-color: #ffd700;
     }
   }
 }
+.logoNav {
+  height: 50px;
+}
 
 .main {
   .background {
@@ -61,7 +64,7 @@ $text-color: #ffd700;
   }
 
   .bg-image {
-    background-image: url(../../images/LogoSP2.png);
+    background-image: url(../../images/LogoSP2nobackground.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -146,10 +149,22 @@ footer {
   -webkit-box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
   -moz-box-shadow: -2px 4px 29px 5px rgba(0, 0, 0, 0.74);
 }
-.loginBtn {
+
+.btn {
   border: 1px solid black !important;
+  &:hover {
+    border: 1px solid white !important;
+  }
 }
+
 .text-white {
   color: white;
   padding: 5px !important;
+}
+.dueDate {
+  background-color: black;
+  color: white;
+  width: 84.5%;
+  padding: 5px;
+  height: 100px;
 }

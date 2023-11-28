@@ -22,6 +22,9 @@ export default async function login(email, password) {
     console.log(data);
     addToStorage("token", data.accessToken);
     addToStorage("name", data.name);
+    setTimeout(() => {
+      window.location.href = "../feed/index.html";
+    }, 1000);
   } else {
     throw new Error(response.statusText);
   }

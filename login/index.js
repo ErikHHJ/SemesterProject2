@@ -7,6 +7,9 @@ form.addEventListener("submit", async (e) => {
   console.log("submit");
   const userEmail = emailInput.value;
   const userPassword = passwordInput.value;
+  setTimeout(() => {
+    console.log("waiting");
+  }, 1000);
 
   login(userEmail, userPassword);
 });
