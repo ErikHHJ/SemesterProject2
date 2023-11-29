@@ -1,11 +1,12 @@
 import { calculateMinutesAgo } from "./constant/newTime.js";
 
-export default function loadContent(data, offset) {
+export default function loadContent(data) {
   const container = document.querySelector(".container");
 
-  for (let i = 0; i < offset; i++) {
+  for (let i = 0; i < data.length; i++) {
     const content = data[i];
     if (!content.media || content.media.length === 0) {
+      console.log(content);
       continue;
     }
 
@@ -28,10 +29,11 @@ export default function loadContent(data, offset) {
     div.appendChild(title);
 
     const posted = document.createElement("p");
-    console.log(content.created);
-    console.log(calculateMinutesAgo(content.created));
 
-    posted.textContent = "Posted: " + calculateMinutesAgo(content.created);
+    posted.textContent =
+      "Posted: " +
+      calculateMinutesAgo(new Date(), new Date(content.created)) +
+      " ago";
     div.appendChild(posted);
 
     const description = document.createElement("p");
@@ -40,7 +42,7 @@ export default function loadContent(data, offset) {
 
     const tagList = document.createElement("ul");
     tagList.textContent = "Tags: ";
-    tagList.classList.add("list-unstyled", "d-flex");
+    tagList.classList.add("list-unstyled", "d-flex", "flex-wrap");
 
     content.tags.forEach((tag) => {
       const tags = document.createElement("li");
@@ -59,7 +61,9 @@ export default function loadContent(data, offset) {
     });
 
     const dueDate = document.createElement("p");
-    dueDate.textContent = "Due date: " + content.dueDate;
+    dueDate.textContent =
+      "Due date: in " +
+      calculateMinutesAgo(new Date(content.endsAt), new Date());
     dueDate.classList.add(
       "dueDate",
       "rounded",
@@ -70,6 +74,6 @@ export default function loadContent(data, offset) {
     );
     div.appendChild(dueDate);
 
-    container.prepend(div);
+    container.appendChild(div);
   }
 }

@@ -13,5 +13,4 @@ if (localStorage.getItem("token")) {
   });
 }
 
-getAuctions();
-loadContent();
+getAuctions(0, 20, "created", "desc");
