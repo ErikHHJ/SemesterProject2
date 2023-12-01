@@ -1,16 +1,17 @@
 import getAuctions from "../js/components/getAuctions.js";
 import loadContent from "../js/components/loadContent.js";
+import showMoreBtn from "../js/components/showMoreBtn.js";
+import loginOrLogout from "../js/components/loginOrLogout.js";
+import sortRecently from "../js/components/sorting/sortRecently.js";
+import sortEndingSoon from "../js/components/sorting/sortEndingSoon.js";
+import {
+  handleIntersection,
+  createObserver,
+  updateSortingOptions,
+  observeTarget,
+  disconnectObserver,
+} from "../js/components/infiniteScrolling.js";
 
-const loginOrLogout = document.querySelector(".loginOrLogout");
-if (localStorage.getItem("token")) {
-  loginOrLogout.href = "#";
-  loginOrLogout.innerHTML = "Logout";
-  loginOrLogout.style.color = "red";
-  loginOrLogout.addEventListener("click", () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("name");
-    window.location.href = "../index.html";
-  });
-}
-
-getAuctions(0, 20, "created", "desc");
+const targetElement = document.querySelector("#loadMoreTrigger");
+const observer = createObserver();
+observer.observe(targetElement);

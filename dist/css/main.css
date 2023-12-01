@@ -18,6 +18,7 @@
 }
 
 .main {
+  min-height: 100vh;
   background-color: #393f46;
 }
 .main .background {
@@ -135,12 +136,27 @@ footer ul a {
   padding: 5px !important;
 }
 
-.dueDate {
-  background-color: black;
-  color: white;
-  width: 84.5%;
-  padding: 5px;
+.card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.avatar {
+  width: 100px;
   height: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.btn-dark:hover {
+  border: 2px solid black !important;
+}
+
+.carousel-inner {
+  transition: transform 0.6s ease-in-out; /* Adjust the transition duration and easing function if needed */
 }
 
 /*# sourceMappingURL=main.css.map */

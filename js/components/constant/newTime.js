@@ -10,6 +10,8 @@ export function calculateMinutesAgo(higherDate, lowerDate) {
     newTime = Math.round(minutesDifference / 60) + " hours ";
   } else if (minutesDifference < 60) {
     newTime = minutesDifference + " minutes";
+  } else if (minutesDifference < 1) {
+    newTime = "less than a minute";
   }
   return newTime;
 }
