@@ -12,7 +12,8 @@ export default function createDiv() {
     "p-3",
     "rounded",
     "bg-dark",
-    "text-white"
+    "text-white",
+    "text-left"
   );
   return div;
 }

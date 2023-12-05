@@ -1,0 +1,18 @@
+import { baseUrl } from "./constant/baseUrl.js";
+import postParams from "./postParams.js";
+
+export default async function newPost(info) {
+  const url = `${baseUrl}listings`;
+  const accessToken = localStorage.getItem("token");
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(info),
+  });
+  const data = await res.json();
+  console.log(data);
+  location.reload();
+}

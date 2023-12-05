@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BidScape │ Profile</title>
+    <script src="../dist/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../dist/css/main.css" />
+
+    <script src="./index.js" type="module" defer></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-2 px-5">
+      ¨
+
+      <a class="navbar-brand" href="../index.html"
+        ><img class="logoNav" src="../images/LogoSP2nobackground.png" alt="" />
+        BidScape
+      </a>
+      <button
+        class="navbar-toggler collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mynavbar"
+        aria-controls="mynavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item active justify-content-center align-items-center">
+            <a class="nav-link" href="../feed/">Auctions</a>
+          </li>
+          <li class="nav-item active">
+            <a href="../login/" class="nav-link loginOrLogout">Login</a>
+          </li>
+          <li class="nav-item active justify-content-center align-items-center">
+            <a class="nav-link" href="../profile/">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main
+      class="gradient-custom-2 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="container">
+        <div class="padding">
+          <div class="col-md-8">
+            <!-- Column -->
+            <div class="card p-3">
+              <img
+                class="card-img-top"
+                id="banner"
+                src="../images/defaultBanner.png"
+                alt="Card image cap"
+              />
+              <div class="card-body little-profile text-center">
+                <div class="pro-img">
+                  <img src="../images/anonProfile.jpg" id="avatar" alt="user" />
+                </div>
+                <h3 id="username" class="m-b-0">Username</h3>
+                <p id="email">Email:</p>
+                <a
+                  href="javascript:void(0)"
+                  class="profilebtn m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"
+                  data-abc="true"
+                  >Edit image</a
+                >
+                <div class="row text-center m-t-20">
+                  <div class="col-lg-4 col-md-4 m-t-20">
+                    <h3 id="listings" class="m-b-0 font-light">0</h3>
+                    <small>Listings</small>
+                  </div>
+                  <div class="col-lg-4 col-md-4 m-t-20">
+                    <h3 id="wins" class="m-b-0 font-light">0</h3>
+                    <small>Wins</small>
+                  </div>
+                  <div class="col-lg-4 col-md-4 m-t-20">
+                    <h3 id="bids" class="m-b-0 font-light">0</h3>
+                    <small>Bids</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
