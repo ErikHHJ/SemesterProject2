@@ -1,9 +1,12 @@
 import getAuctions from "../js/components/getAuctions.js";
-import loadContent from "../js/components/loadContent.js";
+import loadContent from "../js/components/displayFunctions/loadContent.js";
 import showMoreBtn from "../js/components/showMoreBtn.js";
 import loginOrLogout from "../js/components/loginOrLogout.js";
 import sortRecently from "../js/components/sorting/sortRecently.js";
 import sortEndingSoon from "../js/components/sorting/sortEndingSoon.js";
+import moreThanOne from "../js/components/moreThanOne.js";
+import newPost from "../js/components/newPost.js";
+
 import {
   handleIntersection,
   createObserver,
