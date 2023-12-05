@@ -12,7 +12,28 @@ export default function loadContent(data) {
     }
     const div = createDiv();
     const title = document.createElement("h1");
-    title.textContent = content.title;
+    if (content.title.length > 100) {
+      title.textContent = content.title.substring(0, 50) + "...";
+      title.classList.add(
+        "d-flex",
+        "flex-wrap",
+        "overflow-hidden",
+        "w-50",
+        "text-center"
+      );
+    } else {
+      title.textContent = content.title;
+      title.classList.add(
+        "d-flex",
+        "justify-content-center",
+        "align-items-center",
+        "flex-wrap",
+        "overflow-hidden",
+        "w-50",
+        "text-center"
+      );
+    }
+
     div.appendChild(title);
 
     const posted = document.createElement("p");
@@ -27,12 +48,19 @@ export default function loadContent(data) {
     const description = document.createElement("p");
     description.classList.add(
       "d-flex",
+      "w-100",
       "flex-column",
       "flex-wrap",
       "p-3",
-      "overflow-hidden"
+      "overflow-hidden",
+      "text-center"
     );
-    description.textContent = content.description;
+
+    if (content.description.length > 200) {
+      description.textContent = content.description.substring(0, 50) + "...";
+    } else {
+      description.textContent = content.description;
+    }
 
     const tagList = document.createElement("ul");
     tagList.textContent = "Tags: ";
