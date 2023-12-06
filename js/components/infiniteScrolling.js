@@ -4,6 +4,7 @@ import { offset, modifyOffset } from "./getAuctions.js";
 
 let currentSortBy = "created";
 let currentSortOrder = "desc";
+let currentTag = "";
 
 let observer;
 let targetElement = document.querySelector("#loadMoreTrigger");
@@ -13,7 +14,7 @@ export function handleIntersection(entries, observer) {
     if (entry.isIntersecting) {
       console.log("handleIntersection called");
 
-      getAuctions(10, currentSortBy, currentSortOrder);
+      getAuctions(10, currentSortBy, currentSortOrder, currentTag);
     }
   });
 }
@@ -42,9 +43,10 @@ export function disconnectObserver() {
 
 let initialLoadComplete = false;
 
-export function updateSortingOptions(sortBy, sortOrder) {
+export function updateSortingOptions(sortBy, sortOrder, tag) {
   currentSortBy = sortBy;
   currentSortOrder = sortOrder;
+  currentTag = tag;
 
   modifyOffset(0);
   const container = document.querySelector(".container");
@@ -58,7 +60,11 @@ export function updateSortingOptions(sortBy, sortOrder) {
         return;
       } else {
         isFetching = true;
-        getAuctions(10, currentSortBy, currentSortOrder);
+        if (sortBy && sortOrder) {
+          getAuctions(10, currentSortBy, currentSortOrder, undefined);
+        } else {
+          getAuctions(10, undefined, undefined, currentTag);
+        }
       }
 
       isFetching = false;

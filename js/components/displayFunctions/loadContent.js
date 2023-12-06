@@ -3,10 +3,12 @@ import createDiv from "./createDiv.js";
 
 export default function loadContent(data) {
   console.log("loadContent was run");
+
   const container = document.querySelector(".container");
 
   for (let i = 0; i < data.length; i++) {
     const content = data[i];
+
     if (!content.media || content.media.length === 0) {
       continue;
     }
@@ -65,13 +67,25 @@ export default function loadContent(data) {
     const tagList = document.createElement("ul");
     tagList.textContent = "Tags: ";
     tagList.classList.add("list-unstyled", "d-flex", "flex-wrap", "italic");
-
-    content.tags.forEach((tag) => {
-      const tags = document.createElement("li");
-      tags.textContent = tag;
-      tags.classList.add("mx-2", "p-1");
-      tagList.appendChild(tags);
-    });
+    if (content.tags.length === 0 || content.tags[0] === "") {
+      const noTags = document.createElement("li");
+      noTags.textContent = "No tags";
+      noTags.classList.add("mx-1");
+      tagList.appendChild(noTags);
+    } else {
+      content.tags.forEach((tag) => {
+        const tags = document.createElement("li");
+        if (content.tags.length === 1) {
+          tags.textContent = tag;
+          tags.classList.add("mx-2");
+          tagList.appendChild(tags);
+        } else {
+          tags.textContent = tag + ",";
+          tags.classList.add("mx-2");
+          tagList.appendChild(tags);
+        }
+      });
+    }
 
     div.appendChild(tagList);
     if (content.media.length > 1) {

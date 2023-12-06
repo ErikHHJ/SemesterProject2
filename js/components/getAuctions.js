@@ -4,17 +4,16 @@ export let offset = 0;
 export function modifyOffset(value) {
   offset = value;
 }
-export default async function getAuctions(limit, sortBy, sortOrder) {
-  const url =
-    `${baseUrl}` +
-    "listings" +
-    `?offset=${offset}` +
-    `&limit=${limit}` +
-    `&sort=${sortBy}` +
-    `&sortOrder=${sortOrder}` +
-    "&_active=true" +
-    "&_seller=true" +
-    "&_bids=true";
+export default async function getAuctions(limit, sortBy, sortOrder, tag) {
+  let url = `${baseUrl}listings?offset=${offset}&limit=${limit}&_active=true&_seller=true&_bids=true`;
+  if (tag !== undefined) {
+    url += `&_tag=${tag}`;
+  }
+
+  if (sortBy && sortOrder) {
+    url += `&sort=${sortBy}&sortOrder=${sortOrder}`;
+  }
+  console.log(url);
 
   const response = await fetch(url, {
     method: "GET",
