@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+main {
+  min-height: 100vh;
+}
+
 .nav a {
   background-color: #393f46;
   color: #ffd700;
@@ -260,7 +264,7 @@ p {
   color: white;
   font-size: 25px;
   margin-top: 5px;
-  min-height: 100vh;
+  min-height: 50vh;
   color: white;
   background-color: black;
   display: flex;

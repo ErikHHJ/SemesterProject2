@@ -6,6 +6,7 @@ import sortRecently from "../js/components/sorting/sortRecently.js";
 import sortEndingSoon from "../js/components/sorting/sortEndingSoon.js";
 import moreThanOne from "../js/components/moreThanOne.js";
 import newPost from "../js/components/newPost.js";
+import sortByTag from "../js/components/sorting/sortByTag.js";
 
 import {
   handleIntersection,
