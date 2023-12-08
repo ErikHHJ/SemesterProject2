@@ -6,7 +6,7 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
-const url =
+export const url =
   baseUrl + `listings/${id}?_seller=true&_bids=true`.replaceAll('"', "");
 export default async function specificListingFetch() {
   console.log(url);

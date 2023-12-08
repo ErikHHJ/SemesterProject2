@@ -1,6 +1,7 @@
 const loginOrLogout = document.querySelector(".loginOrLogout");
 export default function redName() {
   if (localStorage.getItem("token")) {
+    console.log("loginOrLogout is set");
     loginOrLogout.href = "#";
     loginOrLogout.innerHTML = "Logout";
     loginOrLogout.style.color = "red";

@@ -1,8 +1,10 @@
 import { calculateMinutesAgo } from "../constant/newTime.js";
 import createDiv from "./createDiv.js";
+import redName from "../loginOrLogout.js";
 
 export default function loadContent(data) {
   console.log("loadContent was run");
+  redName();
 
   const container = document.querySelector(".container");
 
@@ -57,8 +59,7 @@ export default function loadContent(data) {
       "overflow-hidden",
       "text-center"
     );
-
-    if (content.description.length > 200) {
+    if (content.description?.length > 200) {
       description.textContent = content.description.substring(0, 50) + "...";
     } else {
       description.textContent = content.description;
@@ -87,7 +88,31 @@ export default function loadContent(data) {
       });
     }
 
-    div.appendChild(tagList);
+    const italicDiv = document.createElement("div");
+    italicDiv.classList.add(
+      "d-flex",
+      "gap-3",
+      "flex-wrap",
+      "p-3",
+      "justify-content-center",
+      "align-items-center"
+    );
+    italicDiv.appendChild(tagList);
+    italicDiv.appendChild(posted);
+    div.appendChild(italicDiv);
+
+    const currentPrice = document.createElement("button");
+    currentPrice.classList.add("btn", "btn-success");
+    currentPrice.innerHTML = `<i class="bi bi-tag"></i>`;
+    const bidsArr = [];
+    content.bids.forEach((elem) => {
+      bidsArr.push(elem.amount);
+    });
+    const highestBid = Math.max(...bidsArr);
+
+    currentPrice.textContent = "Current price: " + highestBid + " credits";
+    italicDiv.appendChild(currentPrice);
+    div.appendChild(italicDiv);
     if (content.media.length > 1) {
       const carouselId = `carousel-${i}`;
       const carousel = document.createElement("div");

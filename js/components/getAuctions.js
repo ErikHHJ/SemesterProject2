@@ -25,6 +25,7 @@ export default async function getAuctions(limit, sortBy, sortOrder, tag) {
     const data = await response.json();
 
     console.log(data);
+    console.log(offset);
     loadContent(data);
   } else {
     throw new Error(response.statusText);
