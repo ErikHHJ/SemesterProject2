@@ -11,10 +11,17 @@ export default function loadProfile(data) {
   const listings = document.querySelector("#listings");
   const wins = document.querySelector("#wins");
   const bids = document.querySelector("#bids");
-
-  avatar.src = data.avatar;
-  username.textContent = data.name;
-  email.textContent += data.email;
-  listings.textContent = data._count.listings;
-  wins.textContent = data.wins.length;
+  if (storageName === data.name) {
+    avatar.src = data.avatar;
+    username.textContent = "Logged in as: " + data.name;
+    email.textContent += data.email;
+    listings.textContent = data._count.listings;
+    wins.textContent = data.wins.length;
+  } else {
+    avatar.src = data.avatar;
+    username.textContent = data.name;
+    email.textContent += data.email;
+    listings.textContent = data._count.listings;
+    wins.textContent = data.wins.length;
+  }
 }
