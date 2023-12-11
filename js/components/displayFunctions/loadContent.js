@@ -16,6 +16,7 @@ export default function loadContent(data) {
     }
     const div = createDiv();
     const title = document.createElement("h1");
+
     if (content.title.length > 100) {
       title.textContent = content.title.substring(0, 50) + "...";
       title.classList.add(
@@ -102,15 +103,21 @@ export default function loadContent(data) {
     div.appendChild(italicDiv);
 
     const currentPrice = document.createElement("button");
-    currentPrice.classList.add("btn", "btn-success");
+    currentPrice.classList.add("btn", "btn-secondary", "mb-3");
     currentPrice.innerHTML = `<i class="bi bi-tag"></i>`;
     const bidsArr = [];
     content.bids.forEach((elem) => {
       bidsArr.push(elem.amount);
     });
-    const highestBid = Math.max(...bidsArr);
+    let highestBid = 0;
+    if (bidsArr.length === 0) {
+      highestBid = "No bids yet";
+      currentPrice.textContent = "Current price: " + highestBid;
+    } else {
+      highestBid = Math.max(...bidsArr);
+      currentPrice.textContent = "Current price: " + highestBid + " credits";
+    }
 
-    currentPrice.textContent = "Current price: " + highestBid + " credits";
     italicDiv.appendChild(currentPrice);
     div.appendChild(italicDiv);
     if (content.media.length > 1) {
@@ -199,12 +206,17 @@ export default function loadContent(data) {
     cardFooter.classList.add(
       "card-footer",
       "d-flex",
-      "justify-content-around",
+      "justify-content-between",
       "align-items-center"
     );
     const avatar = document.createElement("img");
     avatar.src = content.seller.avatar;
-    avatar.classList.add("avatar", "rounded-circle", "img-thumbnail");
+    avatar.classList.add(
+      "avatar",
+      "rounded-circle",
+      "img-thumbnail",
+      "md-w-25"
+    );
 
     const dueDate = document.createElement("p");
     dueDate.textContent =
@@ -217,7 +229,8 @@ export default function loadContent(data) {
       "btn-dark",
       "justify-content-center",
       "align-items-center",
-      "my-2"
+      "my-2",
+      "font-size"
     );
     const seller = document.createElement("ul");
     seller.classList.add(
@@ -226,7 +239,8 @@ export default function loadContent(data) {
       "justify-content-center",
       "p3",
       "meta",
-      "list-unstyled"
+      "list-unstyled",
+      "font-size"
     );
 
     const sellerName = document.createElement("li");
@@ -235,9 +249,6 @@ export default function loadContent(data) {
     const sellerNameA = document.createElement("a");
     const sellerEmailA = document.createElement("a");
     const sellerbidsA = document.createElement("a");
-    sellerBids.classList.add("italic");
-    sellerNameA.classList.add("italic");
-    sellerEmailA.classList.add("italic");
 
     sellerbidsA.textContent = `Bids: ${content._count.bids}`;
     sellerNameA.textContent = "Posted by " + content.seller.name;

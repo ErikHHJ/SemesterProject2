@@ -1,5 +1,5 @@
 import { baseUrl } from "./constant/baseUrl.js";
-import postParams from "./postParams.js";
+import postParams from "../components/postParams.js";
 
 export default async function newPost(info) {
   const url = `${baseUrl}listings`;
@@ -12,7 +12,11 @@ export default async function newPost(info) {
     },
     body: JSON.stringify(info),
   });
-  const data = await res.json();
-  console.log(data);
-  location.reload();
+  if (res.ok === true) {
+    const data = await res.json();
+    console.log(data);
+    location.reload();
+  } else {
+    throw new Error(res.statusText);
+  }
 }

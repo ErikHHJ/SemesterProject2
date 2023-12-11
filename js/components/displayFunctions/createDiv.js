@@ -1,11 +1,12 @@
 export default function createDiv() {
   const div = document.createElement("div");
   div.classList.add(
-    "col-10",
-    "mx-auto",
+    "col-12",
+
     "card",
     "my-5",
     "d-flex",
+    "flex-column",
     "justify-content-center",
     "align-items-center",
     "login",
@@ -13,7 +14,10 @@ export default function createDiv() {
     "rounded",
     "bg-dark",
     "text-white",
-    "text-left"
+    "text-left",
+    "createddiv",
+    "col-md-8",
+    "h-50"
   );
   return div;
 }
