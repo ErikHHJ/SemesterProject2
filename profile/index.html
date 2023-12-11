@@ -32,7 +32,9 @@
 
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav">
-          <li class="nav-item active justify-content-center align-items-center">
+          <li
+            class="nav-item active justify-content-center align-items-center flex-column"
+          >
             <a class="nav-link" href="../feed/">Auctions</a>
           </li>
           <li class="nav-item active">
@@ -48,9 +50,13 @@
     <main
       class="gradient-custom-2 d-flex flex-column justify-content-center align-items-center"
     >
-      <div class="container">
-        <div class="padding">
-          <div class="col-md-8">
+      <div
+        class="container d-flex justify-content-center align-items-center flex-column"
+      >
+        <div
+          class="padding d-flex justify-content-center align-items-center flex-column"
+        >
+          <div class="col-8">
             <div class="card p-3">
               <img
                 class="card-img-top"
@@ -122,18 +128,32 @@
                     </div>
                   </div>
                 </div>
-                <div class="row text-center m-t-20">
-                  <div class="col-lg-4 col-md-4 m-t-20">
+                <div
+                  class="row text-center m-t-20 d-flex justify-content-center align-items-center"
+                >
+                  <div
+                    class="col-lg-4 col-md-4 m-t-20 d-flex flex-column justify-content-center align-items-center"
+                  >
                     <h3 id="listings" class="m-b-0 font-light">0</h3>
                     <small>Listings</small>
+                    <button
+                      type="button"
+                      class="viewlistings btn btn-secondary w-50"
+                    >
+                      View
+                    </button>
                   </div>
-                  <div class="col-lg-4 col-md-4 m-t-20">
+                  <div
+                    class="col-lg-4 col-md-4 m-t-20 d-flex flex-column justify-content-center align-items-center"
+                  >
                     <h3 id="wins" class="m-b-0 font-light">0</h3>
                     <small>Wins</small>
-                  </div>
-                  <div class="col-lg-4 col-md-4 m-t-20">
-                    <h3 id="bids" class="m-b-0 font-light">0</h3>
-                    <small>Bids</small>
+                    <button
+                      type="button"
+                      class="viewwins btn btn-secondary w-50"
+                    >
+                      View
+                    </button>
                   </div>
                 </div>
               </div>

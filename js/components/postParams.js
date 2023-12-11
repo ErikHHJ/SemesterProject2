@@ -1,6 +1,7 @@
 import newPost from "../components/newPost.js";
 const postBtn = document.querySelector("#postbtn");
 export default postBtn.onclick = () => {
+  console.log("hei");
   const mediaInputs = document.querySelectorAll(".mediainput");
   const tagsInput = document.querySelector("#tagsinput");
   const dateString = document.querySelector("#endsAt").value;
@@ -10,7 +11,11 @@ export default postBtn.onclick = () => {
   const arr = tagsInput.value.split(" ");
   const mediaValues = [];
   mediaInputs.forEach((input) => {
-    mediaValues.push(input.value.trim());
+    if (input.value.trim === "") {
+      return;
+    } else {
+      mediaValues.push(input.value.trim());
+    }
   });
   const info = {
     title: document.querySelector("#titleinput").value.trim(),
@@ -19,5 +24,6 @@ export default postBtn.onclick = () => {
     tags: arr,
     media: mediaValues,
   };
+  console.log(info);
   newPost(info);
 };
