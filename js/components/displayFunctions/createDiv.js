@@ -16,7 +16,7 @@ export default function createDiv() {
     "text-white",
     "text-left",
     "createddiv",
-    "col-md-8",
+    "col-md-10",
     "h-50"
   );
   return div;

@@ -280,7 +280,7 @@ p {
 }
 
 img {
-  max-height: 600px !important;
+  max-height: 250px !important;
 }
 
 @media (max-width: 768px) {

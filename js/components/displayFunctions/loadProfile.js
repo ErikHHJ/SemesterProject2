@@ -5,16 +5,17 @@ export default function loadProfile(data) {
 
   const container = document.querySelector(".container");
   const avatar = document.querySelector("#avatar");
-  const banner = document.querySelector("#banner");
   const username = document.querySelector("#username");
   const email = document.querySelector("#email");
   const listings = document.querySelector("#listings");
   const wins = document.querySelector("#wins");
-  const bids = document.querySelector("#bids");
+  const credits = document.querySelector("#credits");
+
   if (storageName === data.name) {
     avatar.src = data.avatar;
     username.textContent = "Logged in as: " + data.name;
-    email.textContent += data.email;
+    email.textContent += " " + data.email;
+    credits.textContent += " " + data.credits;
     listings.textContent = data._count.listings;
     wins.textContent = data.wins.length;
   } else {
