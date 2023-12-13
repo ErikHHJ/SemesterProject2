@@ -2,10 +2,13 @@ import { baseUrl } from "./constant/baseUrl.js";
 import loadProfile from "./displayFunctions/loadProfile.js";
 import showError from "./displayFunctions/showError.js";
 export default async function getProfile() {
+  const queryString = document.location.search;
+  const params = new URLSearchParams(queryString);
+  const pname = params.get("pname");
   const token = localStorage.getItem("token");
   const name = localStorage.getItem("name");
-  console.log(name);
-  const response = await fetch(`${baseUrl}profiles/${name}`, {
+
+  const response = await fetch(`${baseUrl}profiles/${pname}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

@@ -209,6 +209,8 @@ export default function loadContent(data) {
       "justify-content-between",
       "align-items-center"
     );
+    const avatarLink = document.createElement("a");
+    avatarLink.href = `../profile/index.html?pname=${content.seller.name}`;
     const avatar = document.createElement("img");
     avatar.src = content.seller.avatar;
     avatar.classList.add(
@@ -260,8 +262,8 @@ export default function loadContent(data) {
     seller.appendChild(sellerName);
     seller.appendChild(sellerEmail);
     seller.appendChild(sellerBids);
-
-    cardFooter.appendChild(avatar);
+    avatarLink.appendChild(avatar);
+    cardFooter.appendChild(avatarLink);
     cardFooter.appendChild(seller);
     cardFooter.appendChild(dueDate);
     div.appendChild(cardFooter);

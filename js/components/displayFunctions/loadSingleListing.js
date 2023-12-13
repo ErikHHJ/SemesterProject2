@@ -3,12 +3,8 @@ import { calculateMinutesAgo } from "../constant/newTime.js";
 import createDiv from "./createDiv.js";
 import placeBid from "../placeBid.js";
 
-export default function loadSingleListing(data) {
-  console.log("loadSingleListing was run");
-  console.log(data);
-
+export default function loadSingleListing(data, buttons) {
   const container = document.querySelector(".container");
-  console.log(container);
 
   const content = data;
 
@@ -121,7 +117,6 @@ export default function loadSingleListing(data) {
 
   let img = document.createElement("img");
   if (content.media.length > 1) {
-    console.log("media length longer than 1");
     const carouselId = `carousel-${1}`;
     const carousel = document.createElement("div");
     carousel.classList.add("carousel", "slide");
@@ -150,9 +145,9 @@ export default function loadSingleListing(data) {
         item.classList.add("active");
       }
       const imgLink = document.createElement("a");
+      imgLink.classList.add("imglink");
       imgLink.href = `../specificlisting/index.html?id=${content.id}`;
 
-      // Create a new img element for each iteration
       const img = document.createElement("img");
       img.src = photo;
       img.classList.add("d-block", "w-100", "rounded", "max-vh-50");
@@ -195,18 +190,17 @@ export default function loadSingleListing(data) {
     carousel.appendChild(inner);
     div.appendChild(carousel);
   } else {
-    console.log("media length 1");
     const imgLink = document.createElement("a");
-    imgLink.classList.add("w-100");
+    imgLink.classList.add("w-100", "imglink");
     imgLink.href = `../specificlisting/index.html?id="${content.id}"`;
 
     img.src = content.media[0];
     img.classList.add("img-fluid", "w-100", "rounded", "max-vh-50");
+
     imgLink.appendChild(img);
     div.appendChild(imgLink);
   }
 
-  div.appendChild(img);
   div.appendChild(description);
 
   container.appendChild(div);
@@ -217,13 +211,24 @@ export default function loadSingleListing(data) {
     "justify-content-around",
     "align-items-center"
   );
+  const avatarLink = document.createElement("a");
+  avatarLink.href = `../profile/index.html?pname=${content.seller.name}`;
   const avatar = document.createElement("img");
   avatar.src = content.seller.avatar;
   avatar.classList.add("avatar", "rounded-circle", "img-thumbnail");
 
   const dueDate = document.createElement("p");
-  dueDate.textContent =
-    "Due date: in " + calculateMinutesAgo(new Date(content.endsAt), new Date());
+  const minutesAgo = parseInt(
+    calculateMinutesAgo(new Date(content.endsAt), new Date()),
+    10
+  );
+
+  if (minutesAgo < 0) {
+    dueDate.textContent = "Due date: Expired";
+  } else {
+    dueDate.textContent = "Due date: in " + minutesAgo + " minutes";
+  }
+
   dueDate.classList.add(
     "dueDate",
     "rounded",
@@ -248,6 +253,7 @@ export default function loadSingleListing(data) {
     "d-flex",
     "flex-column",
     "justify-content-center",
+    "align-items-center",
     "card-body",
     "w-100"
   );
@@ -256,17 +262,25 @@ export default function loadSingleListing(data) {
     "d-flex",
     "flex-column",
     "justify-content-center",
+    "align-items-center",
     "w-100"
   );
-  /*const generalBidBtn = document.createElement("button");
-  generalBidBtn.classList.add("btn", "btn-secondary", "w-50", "my-3");
-  generalBidBtn.textContent = `Place bid`;
-  generalBidBtn.setAttribute("data-bs-toggle", "modal");
-  generalBidBtn.setAttribute("data-bs-target", "#exampleModal");*/
+  const bidBtn = document.createElement("div");
+  bidBtn.innerHTML = `<button class="btn btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#exampleModal">Place bid</button>
+  <button class="btn btn-secondary w-50 placefastbid" data-bs-toggle="modal" data-bs-target="#exampleModal">Place fast bid</button>`;
+  bidBtn.classList.add(
+    "d-flex",
+    "w-50",
+    "justify-content-center",
+    "align-items-center",
+    "btn-group",
+    "bid-btn-group"
+  );
+
   if (content.bids.length > 0) {
     content.bids.forEach((elem) => {
       const bid = document.createElement("div");
-      bid.classList.add("w-100", "rounded", "p-1", "my-3");
+      bid.classList.add("w-100", "rounded", "p-1", "my-3", "fs-6");
       const bidderName = elem.bidderName;
       bid.innerHTML = `
       <div class="card border-white mb-3 bg-dark">
@@ -278,24 +292,23 @@ export default function loadSingleListing(data) {
           
           <div class="w-100">
             <div class="d-flex justify-content-between align-items-center mb-3">
-              <h6 class="text-white fw-bold mb-0">
+              <h6 class="text-white fw-bold mb-0 font-size">
                 ${bidderName}:
                 <span class="text-white ms-2">Bid amount: ${
                   elem.amount
                 } credits</span>
               </h6>
-              <p class="mb-0 text-white">${calculateMinutesAgo(
+              <p class="mb-0 text-white font-size">${calculateMinutesAgo(
                 new Date(),
                 new Date(elem.created)
               )} ago</p>
             </div>
+            
             <div class="d-flex justify-content-between align-items-center">
               <p class="small mb-0" style="color: #aaa;">
+              
                 
-                <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-grey placeBid">Place bid</a> •
-                <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-grey placeFastBid" data-bs-whatever="${
-                  highestBid + 1
-                }">Place fast-bid</a>
+                
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content bg-dark">
@@ -339,7 +352,7 @@ export default function loadSingleListing(data) {
     );
 
     bid.innerHTML = `
-      <button class="btn btn-secondary w-50 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Place bid</button>
+      
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content bg-dark">
@@ -361,6 +374,7 @@ export default function loadSingleListing(data) {
           `;
     bidsDiv.prepend(bid);
   }
+  bidsDiv.prepend(bidBtn);
 
   bidsSection.appendChild(bidsDiv);
   div.appendChild(bidsSection);
@@ -385,35 +399,49 @@ export default function loadSingleListing(data) {
   seller.appendChild(sellerName);
   seller.appendChild(sellerEmail);
   seller.appendChild(sellerBids);
+  avatarLink.appendChild(avatar);
 
-  cardFooter.appendChild(avatar);
+  cardFooter.appendChild(avatarLink);
   cardFooter.appendChild(seller);
   cardFooter.appendChild(dueDate);
   div.appendChild(cardFooter);
 
-  const placeFastBidButtons = document.querySelectorAll(".placeFastBid");
+  const fastBidButton = document.querySelector(".placefastbid");
   const sendBidButtons = document.querySelectorAll(".btn-sendBid");
   const bidInput = document.querySelector(".bidinput");
 
-  placeFastBidButtons.forEach((fastBidButton) => {
-    fastBidButton.addEventListener("click", (event) => {
-      console.log("Place fast-bid was clicked");
+  fastBidButton.addEventListener("click", (event) => {
+    const bidsArr = content.bids.map((elem) => elem.amount);
+    const highestBid = Math.max(...bidsArr);
 
-      const bidsArr = content.bids.map((elem) => elem.amount);
-      const highestBid = Math.max(...bidsArr);
-
-      bidInput.value = highestBid + 1;
-      console.log(bidInput.value);
-    });
+    bidInput.value = highestBid + 1;
   });
 
   sendBidButtons.forEach((sendBidButton) => {
     sendBidButton.addEventListener("click", (event) => {
-      console.log("Send bid was clicked");
-
       const bidAmount = Number(bidInput.value);
 
       placeBid(`${baseUrl}listings/${content.id}/bids`, bidAmount);
     });
   });
+  if (!buttons !== undefined) {
+    if (content.seller.name === localStorage.getItem("name")) {
+      const editBtn = document.createElement("button");
+      const deleteBtn = document.createElement("button");
+      const buttonDiv = document.createElement("div");
+      buttonDiv.classList.add("btn-group");
+      editBtn.classList.add("btn", "btn-warning");
+      deleteBtn.classList.add("btn", "btn-danger");
+      editBtn.textContent = "Edit Post";
+      deleteBtn.textContent = "Delete Post";
+      buttonDiv.appendChild(editBtn);
+      buttonDiv.appendChild(deleteBtn);
+
+      div.appendChild(buttonDiv);
+    } else {
+      return;
+    }
+  } else {
+    return;
+  }
 }

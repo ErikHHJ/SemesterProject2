@@ -43,7 +43,7 @@
             <a href="../login/" class="nav-link loginOrLogout">Login</a>
           </li>
           <li class="nav-item active">
-            <a href="../profile/" class="nav-link ">Profile</a>
+            <a href="../profile/" class="nav-link profile">Profile</a>
           </li>
         </ul>
       </div>
@@ -54,7 +54,7 @@
     >
       <div class="btn-group gradient-custom-2 flex-top my-3">
         <button
-          class="btn btn-secondary btn-lg"
+          class="btn btn-secondary btn-lg createnew"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
         >
@@ -95,12 +95,14 @@
                       <div class="mb-4 d-flex flex-column" id="mediaInputDiv">
                           <label class="form-label" for="media">Image gallery:</label>
                           <input type="text" class="form-control mediainput" placeholder="Enter image url" name="media" required>
-                          <a class="moreThanOne">More than one image?</a>
+                          <a class="my-2 w-25 moreThanOne btn btn-white text-white"><i class="fa-solid fa-plus"></i></a>
                           
-                      </div>
+                        </div>
                       <div>
                       
                         <button id="postbtn" type="button" class="btn btn-secondary">Post</button>
+                        
+
   </div>
 </div>
 
@@ -119,9 +121,11 @@
         <ul class="dropdown-menu">
           <li class="dropdown-item sortRecently">Recently Posted</li>
           <li class="dropdown-item sortEndingSoon">Ending Soon</li>
-          <li class="dropdown-item searchTags">Search Tags</li>
+          
         </ul>
+        
       </div>
+      <input type="text" placeholder="Search Tags" class="form-control w-75 w-md-50 taginput">
 </div>
         
       <div
