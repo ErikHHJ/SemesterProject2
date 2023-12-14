@@ -1,20 +1,13 @@
 import { baseUrl } from "./constant/baseUrl.js";
 import showError from "./displayFunctions/showError.js";
 
-export default async function updateAvatar(newAvatar, providedUrl) {
+export default async function updatePost(newPostInfo, id) {
   const token = localStorage.getItem("token");
   const name = localStorage.getItem("name");
-  const info = {
-    avatar: newAvatar,
-  };
+  const info = newPostInfo;
+
   console.log(info);
-  let url = ``;
-  if (providedUrl === undefined) {
-    url = `${baseUrl}profiles/${name}/avatar`;
-  } else {
-    url = providedUrl;
-  }
-  const response = await fetch(url, {
+  const response = await fetch(`${baseUrl}listings/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

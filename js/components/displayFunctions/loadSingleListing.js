@@ -2,6 +2,7 @@ import { baseUrl } from "../constant/baseUrl.js";
 import { calculateMinutesAgo } from "../constant/newTime.js";
 import createDiv from "./createDiv.js";
 import placeBid from "../placeBid.js";
+import postParams from "../postParams.js";
 
 export default function loadSingleListing(data, buttons) {
   const container = document.querySelector(".container");
@@ -191,7 +192,12 @@ export default function loadSingleListing(data, buttons) {
     div.appendChild(carousel);
   } else {
     const imgLink = document.createElement("a");
-    imgLink.classList.add("w-100", "imglink");
+    imgLink.classList.add(
+      "imglink",
+      "d-flex",
+      "justify-content-center",
+      "align-items-center"
+    );
     imgLink.href = `../specificlisting/index.html?id="${content.id}"`;
 
     img.src = content.media[0];
@@ -427,6 +433,9 @@ export default function loadSingleListing(data, buttons) {
   if (!buttons !== undefined) {
     if (content.seller.name === localStorage.getItem("name")) {
       const editBtn = document.createElement("button");
+      editBtn.setAttribute("data-bs-toggle", "modal");
+      editBtn.setAttribute("data-bs-target", "#staticBackdrop2");
+
       const deleteBtn = document.createElement("button");
       const buttonDiv = document.createElement("div");
       buttonDiv.classList.add("btn-group");
@@ -437,6 +446,7 @@ export default function loadSingleListing(data, buttons) {
       buttonDiv.appendChild(editBtn);
       buttonDiv.appendChild(deleteBtn);
 
+      postParams(content.id);
       div.appendChild(buttonDiv);
     } else {
       return;

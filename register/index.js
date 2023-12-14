@@ -14,5 +14,5 @@ form.addEventListener("submit", async (e) => {
   const userAvatar = avatarInput.value;
 
   register(userName, userEmail, userPassword, userAvatar);
-  setTimeout(login(userEmail, userPassword)), 500;
+  login(userEmail, userPassword);
 });

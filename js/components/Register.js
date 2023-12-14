@@ -18,6 +18,6 @@ export default async function register(username, email, password, avatar) {
     const data = await response.json();
     console.log(data);
   } else {
-    console.log(response);
+    throw new Error("Something went wrong");
   }
 }

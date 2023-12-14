@@ -8,6 +8,8 @@ import moreThanOne from "../js/components/moreThanOne.js";
 import newPost from "../js/components/newPost.js";
 import sortByTag from "../js/components/sorting/sortByTag.js";
 import hrefProfile from "../js/components/toOwnProfile.js";
+import postParams from "../js/components/postParams.js";
+postParams();
 document.addEventListener("DOMContentLoaded", function () {
   hrefProfile();
 });

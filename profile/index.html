@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../dist/css/main.css" />
 
     <script src="./index.js" type="module" defer></script>
+    <script
+      src="https://kit.fontawesome.com/86fb0fb587.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark p-2 px-5">
@@ -161,8 +165,58 @@
             </div>
           </div>
         </div>
+        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content text-white bg-dark">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">New post</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    
+                          <label for="title" class="form-label">Title:
+                          <input id="titleinput" type="text" class="form-control" placeholder="Enter post title" name="title" required>
+                          
+                      </div>
+                      <div class="form-outline mb-4 d-flex flex-column">
+                          <label for="body" class="form-label">Body:
+                              <textarea class="form-control" rows="5" cols="30" id="bodyinput">
+                              </textarea>
+                          
+                      </div>
+                      <div class="form-outline mb-4 d-flex flex-column">
+                        <label for="endsAt" class="form-label">Due Date
+                        <input  type="datetime-local" class="form-control"  name="endsAt" id="endsAt" required>
+                        
+                    </div>
+                      <div class="form-outline mb-4 d-flex flex-column">
+                        <label for="tags" class="form-label">Tags, separated by spaces!!
+                        <input id="tagsinput" type="text" class="form-control" placeholder="Enter tags seperated by spaces" name="tags" required>
+                        
+                    </div>
+                  
+                      <div>
+                      <div class="mb-4 d-flex flex-column" id="mediaInputDiv">
+                          <label class="form-label" for="media">Image gallery:</label>
+                          <input type="text" class="form-control mediainput" placeholder="Enter image url" name="media" required>
+                          <a class="my-2 w-25 moreThanOne btn btn-white text-white"><i class="fa-solid fa-plus"></i></a>
+                          
+                        </div>
+                      <div>
+                      
+                        <button id="postbtn" type="button" class="btn btn-secondary">Post</button>
+                        
+    
+    </div>
+    </div>
+    
+                  </div>
+      
+    </div>
+    </div>
       </div>
     </main>
+
     <footer></footer>
   </body>
 </html>

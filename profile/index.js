@@ -6,6 +6,7 @@ import getProfileListings from "../js/components/getProfileListings.js";
 import loadSingleListing from "../js/components/displayFunctions/loadSingleListing.js";
 import hrefProfile from "../js/components/toOwnProfile.js";
 import placeBid from "../js/components/placeBid.js";
+import moreThanOne from "../js/components/moreThanOne.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   hrefProfile();
@@ -39,5 +40,6 @@ viewListings.addEventListener("click", () => {
       createdDiv.remove();
     });
   }
+
   getProfileListings();
 });
