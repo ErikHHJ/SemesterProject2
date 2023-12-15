@@ -1,4 +1,5 @@
 import { baseUrl } from "./constant/baseUrl.js";
+import login from "./login.js";
 export default async function register(username, email, password, avatar) {
   const userLogin = {
     name: `${username}`,
@@ -17,6 +18,7 @@ export default async function register(username, email, password, avatar) {
   if (response.ok) {
     const data = await response.json();
     console.log(data);
+    login(email, password);
   } else {
     const errorDiv = document.querySelector(".errorDiv");
     const error = document.createElement("p");
