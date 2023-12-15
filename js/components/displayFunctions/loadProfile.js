@@ -13,7 +13,11 @@ export default function loadProfile(data) {
   const credits = document.querySelector("#credits");
 
   if (storageName === data.name) {
-    avatar.src = data.avatar;
+    if (data.avatar === null || data.avatar === "") {
+      return;
+    } else {
+      avatar.src = data.avatar;
+    }
     username.textContent = "Logged in as: " + data.name;
     email.textContent += " " + data.email;
     credits.textContent += " " + data.credits;
@@ -22,7 +26,7 @@ export default function loadProfile(data) {
   } else {
     credits.remove();
     profileBtn.remove();
-    if (data.avatar === null) {
+    if (data.avatar === null || data.avatar === "") {
       return;
     } else {
       avatar.src = data.avatar;
