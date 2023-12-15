@@ -1,5 +1,5 @@
 import register from "../js/components/Register.js";
-import login from "../js/components/Login.js";
+
 if (localStorage.getItem("token")) {
   console.log("token is set");
   window.location.href = "../feed/index.html";
@@ -18,5 +18,4 @@ form.addEventListener("submit", async (e) => {
   const userAvatar = avatarInput.value;
 
   register(userName, userEmail, userPassword, userAvatar);
-  login(userEmail, userPassword);
 });
