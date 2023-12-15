@@ -15,8 +15,6 @@ export default function sortByTag() {
         undefined,
         tagInput.value.toLowerCase().trim()
       );
-
-      console.log(tagInput.value.toLowerCase().trim());
     }
   });
 }

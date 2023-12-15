@@ -102,8 +102,8 @@ export default function loadContent(data) {
       italicDiv.appendChild(posted);
       div.appendChild(italicDiv);
 
-      const currentPrice = document.createElement("button");
-      currentPrice.classList.add("btn", "btn-secondary", "mb-3");
+      const currentPrice = document.createElement("p");
+      currentPrice.classList.add("rounded", "text-white", "border", "p-1");
       currentPrice.innerHTML = `<i class="bi bi-tag"></i>`;
       const bidsArr = [];
       content.bids.forEach((elem) => {
@@ -210,7 +210,8 @@ export default function loadContent(data) {
         "card-footer",
         "d-flex",
         "justify-content-between",
-        "align-items-center"
+        "align-items-center",
+        "gap-1"
       );
       const avatarLink = document.createElement("a");
       avatarLink.href = `../profile/index.html?pname=${content.seller.name}`;
@@ -228,13 +229,10 @@ export default function loadContent(data) {
         "Due date: in " +
         calculateMinutesAgo(new Date(content.endsAt), new Date());
       dueDate.classList.add(
-        "dueDate",
         "rounded",
-        "btn",
-        "btn-dark",
-        "justify-content-center",
-        "align-items-center",
-        "my-2",
+        "text-white",
+        "border",
+        "p-1",
         "font-size"
       );
       const seller = document.createElement("ul");

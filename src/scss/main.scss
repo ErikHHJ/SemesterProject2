@@ -303,6 +303,11 @@ img {
 .bid-btn-group {
   width: 100%;
 }
+.nohover {
+  &:hover {
+    background-color: transparent !important;
+  }
+}
 @media (max-width: 768px) {
   .font-size {
     font-size: 12px;
@@ -310,7 +315,7 @@ img {
 }
 @media (max-width: 500px) {
   .font-size {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 

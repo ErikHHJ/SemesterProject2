@@ -1,5 +1,5 @@
 import { baseUrl } from "./constant/baseUrl.js";
-import login from "./login.js";
+import login from "./Login.js";
 export default async function register(username, email, password, avatar) {
   const userLogin = {
     name: `${username}`,

@@ -9,7 +9,7 @@ let modalCounter = 0;
 
 export default function loadSingleListing(data, buttons) {
   const container = document.querySelector(".container");
-
+  console.log(data);
   const content = data;
 
   const div = createDiv();
@@ -101,7 +101,14 @@ export default function loadSingleListing(data, buttons) {
   italicDiv.appendChild(posted);
 
   const currentPrice = document.createElement("button");
-  currentPrice.classList.add("btn", "btn-secondary", "mb-3");
+  currentPrice.classList.add(
+    "rounded",
+    "text-white",
+    "border",
+    "p-1",
+    "font-size",
+    "bg-dark"
+  );
   currentPrice.innerHTML = `<i class="bi bi-tag"></i>`;
   const bidsArr = [];
   content.bids.forEach((elem) => {
@@ -218,12 +225,17 @@ export default function loadSingleListing(data, buttons) {
     "card-footer",
     "d-flex",
     "justify-content-around",
-    "align-items-center"
+    "align-items-center",
+    "gap-1"
   );
   const avatarLink = document.createElement("a");
   avatarLink.href = `../profile/index.html?pname=${content.seller.name}`;
   const avatar = document.createElement("img");
-  avatar.src = content.seller.avatar;
+  if (data.seller.avatar === "" || data.seller.avatar === "null") {
+    avatar.src = "../../../images/anonProfile.jpg";
+  } else {
+    avatar.src = data.seller.avatar;
+  }
   avatar.classList.add("avatar", "rounded-circle", "img-thumbnail");
 
   const dueDate = document.createElement("p");
@@ -238,15 +250,7 @@ export default function loadSingleListing(data, buttons) {
     dueDate.textContent = "Due date: in " + minutesAgo + " minutes";
   }
 
-  dueDate.classList.add(
-    "dueDate",
-    "rounded",
-    "btn",
-    "btn-dark",
-    "justify-content-center",
-    "align-items-center",
-    "my-2"
-  );
+  dueDate.classList.add("rounded", "text-white", "border", "p-1", "font-size");
   const seller = document.createElement("ul");
   seller.classList.add(
     "d-flex",
@@ -275,8 +279,29 @@ export default function loadSingleListing(data, buttons) {
     "w-100"
   );
   const bidBtn = document.createElement("div");
-  bidBtn.innerHTML = `<button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Place bid</button>
-  <button class="btn btn-secondary w-100  placefastbid" data-bs-toggle="modal" data-bs-target="#exampleModal">Place fast bid</button>`;
+  const bidBtn1 = document.createElement("button");
+  const bidBtn2 = document.createElement("button");
+  bidBtn1.classList.add("btn", "btn-secondary", "w-100");
+  bidBtn1.setAttribute("data-bs-toggle", "modal");
+  bidBtn1.setAttribute("data-bs-target", "#exampleModal");
+  bidBtn1.textContent = "Place bid";
+  bidBtn.appendChild(bidBtn1);
+
+  bidBtn2.classList.add("btn", "btn-secondary", "w-100", "placefastbid");
+  bidBtn2.setAttribute("data-bs-toggle", "modal");
+  bidBtn2.setAttribute("data-bs-target", "#exampleModal");
+  bidBtn2.textContent = "Place fast bid";
+  bidBtn.appendChild(bidBtn2);
+
+  if (!localStorage.getItem("token")) {
+    bidBtn1.disabled = true;
+    bidBtn2.disabled = true;
+    const notLoggedIn = document.createElement("p");
+    notLoggedIn.classList.add("text-center", "text-danger");
+    notLoggedIn.textContent = "Not logged in";
+    bidsDiv.appendChild(notLoggedIn);
+  }
+
   bidBtn.classList.add(
     "d-flex",
     "justify-content-center",
