@@ -22,6 +22,12 @@ export default async function login(email, password) {
       window.location.href = "../feed/index.html";
     }, 1000);
   } else {
+    const errorDiv = document.querySelector(".errorDiv");
+    const error = document.createElement("p");
+    error.classList.add("text-danger", "text-center");
+    error.textContent =
+      "Doesnt match any account in our database, try again. Remember only noroff.no email is accepted";
+    errorDiv.appendChild(error);
     throw new Error(response.statusText);
   }
 }

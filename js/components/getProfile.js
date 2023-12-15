@@ -21,9 +21,9 @@ export default async function getProfile() {
     loadProfile(data);
   } else {
     showError(
-      `You are not authorized, please <a href="../login">login</a>` +
-        "or " +
-        `<a href="../register">register</a>`
+      `Cannot view profile, You are not authorized, please  <a href="../login">login</a>
+        or
+        <a href="../register">register</a>`
     );
     throw new Error(response.statusText);
   }

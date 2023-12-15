@@ -1,25 +1,24 @@
-import { url } from "./specificListingFetch.js";
-export default async function placeBid(url, bid) {
-  const token = localStorage.getItem("token");
-  const info = {
-    amount: bid,
-  };
+import { baseUrl } from "./constant/baseUrl.js";
+import showError from "./displayFunctions/showError.js";
 
-  const response = await fetch(url, {
-    method: "POST",
+export default async function updatePost(newPostInfo, id) {
+  const token = localStorage.getItem("token");
+  const name = localStorage.getItem("name");
+  const info = newPostInfo;
+
+  console.log(info);
+  const response = await fetch(`${baseUrl}listings/${id}`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(info),
   });
-  console.log(info);
   if (response.ok === true) {
     const data = await response.json();
     console.log(data);
     location.reload();
-
-    return data;
   } else {
     throw new Error(response.statusText);
   }

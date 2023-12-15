@@ -12,8 +12,6 @@ let targetElement = document.querySelector("#loadMoreTrigger");
 export function handleIntersection(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      console.log("handleIntersection called");
-
       getAuctions(10, currentSortBy, currentSortOrder, currentTag);
     }
   });

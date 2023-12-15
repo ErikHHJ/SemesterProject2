@@ -14,6 +14,7 @@ export default async function newPost(info) {
   });
   if (res.ok === true) {
     const data = await res.json();
+
     console.log(data);
     location.reload();
   } else {
