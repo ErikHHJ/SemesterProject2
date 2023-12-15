@@ -28,19 +28,6 @@ export default async function getProfileListings() {
 
     data.forEach((obj) => {
       loadSingleListing(obj, buttons);
-      /*if (obj.media.length === 1) {
-        const img = document.querySelector(".img-fluid");
-        img.onerror = function () {
-          img.src = "../../noImage.jpg";
-        };
-      } else {
-        const imgList = document.querySelectorAll(".img-fluid");
-        imgList.forEach((img) => {
-          img.onerror = function () {
-            img.src = "../../noImage.jpg";
-          };
-        });
-      }*/
     });
   } else {
     showError(`Fetch failed, try again later`);

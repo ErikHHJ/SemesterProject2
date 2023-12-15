@@ -1,4 +1,8 @@
 import login from "../js/components/Login.js";
+if (localStorage.getItem("token")) {
+  console.log("token is set");
+  window.location.href = "../feed/index.html";
+}
 const form = document.querySelector("form");
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");

@@ -2,6 +2,7 @@ import redName from "../loginOrLogout.js";
 export default function loadProfile(data) {
   redName();
   const storageName = localStorage.getItem("name");
+  const profileBtn = document.querySelector(".profilebtn");
 
   const container = document.querySelector(".container");
   const avatar = document.querySelector("#avatar");
@@ -19,7 +20,13 @@ export default function loadProfile(data) {
     listings.textContent = data._count.listings;
     wins.textContent = data.wins.length;
   } else {
-    avatar.src = data.avatar;
+    credits.remove();
+    profileBtn.remove();
+    if (data.avatar === null) {
+      return;
+    } else {
+      avatar.src = data.avatar;
+    }
     username.textContent = data.name;
     email.textContent += data.email;
     listings.textContent = data._count.listings;

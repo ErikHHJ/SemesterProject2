@@ -3,6 +3,9 @@ import { calculateMinutesAgo } from "../constant/newTime.js";
 import createDiv from "./createDiv.js";
 import placeBid from "../placeBid.js";
 import postParams from "../postParams.js";
+import deletePost from "../deletePost.js";
+
+let modalCounter = 0;
 
 export default function loadSingleListing(data, buttons) {
   const container = document.querySelector(".container");
@@ -272,11 +275,10 @@ export default function loadSingleListing(data, buttons) {
     "w-100"
   );
   const bidBtn = document.createElement("div");
-  bidBtn.innerHTML = `<button class="btn btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#exampleModal">Place bid</button>
-  <button class="btn btn-secondary w-50 placefastbid" data-bs-toggle="modal" data-bs-target="#exampleModal">Place fast bid</button>`;
+  bidBtn.innerHTML = `<button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Place bid</button>
+  <button class="btn btn-secondary w-100  placefastbid" data-bs-toggle="modal" data-bs-target="#exampleModal">Place fast bid</button>`;
   bidBtn.classList.add(
     "d-flex",
-    "w-50",
     "justify-content-center",
     "align-items-center",
     "btn-group",
@@ -441,12 +443,26 @@ export default function loadSingleListing(data, buttons) {
       buttonDiv.classList.add("btn-group");
       editBtn.classList.add("btn", "btn-warning");
       deleteBtn.classList.add("btn", "btn-danger");
+      deleteBtn.setAttribute("data-bs-toggle", "modal");
+      deleteBtn.setAttribute("data-bs-target", "#exampleModal3");
+
       editBtn.textContent = "Edit Post";
       deleteBtn.textContent = "Delete Post";
       buttonDiv.appendChild(editBtn);
       buttonDiv.appendChild(deleteBtn);
+      const deleteModalBtn = document.querySelector(".delete-post-btn");
+      deleteBtn.addEventListener("click", () => {
+        deleteModalBtn.setAttribute("data-post-id", content.id);
+      });
+      deleteModalBtn.addEventListener("click", (event) => {
+        const postId = event.target.getAttribute("data-post-id");
+        deletePost(postId);
+      });
 
-      postParams(content.id);
+      editBtn.addEventListener("click", () => {
+        postParams(content.id);
+      });
+
       div.appendChild(buttonDiv);
     } else {
       return;

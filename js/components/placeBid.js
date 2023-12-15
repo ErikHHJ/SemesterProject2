@@ -13,6 +13,7 @@ export default async function placeBid(url, bid) {
     },
     body: JSON.stringify(info),
   });
+  console.log(info);
   if (response.ok === true) {
     const data = await response.json();
     console.log(data);

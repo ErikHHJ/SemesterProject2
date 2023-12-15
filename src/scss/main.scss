@@ -300,6 +300,9 @@ p {
 img {
   max-height: 350px !important;
 }
+.bid-btn-group {
+  width: 100%;
+}
 @media (max-width: 768px) {
   .font-size {
     font-size: 12px;
@@ -308,5 +311,11 @@ img {
 @media (max-width: 500px) {
   .font-size {
     font-size: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bid-btn-group {
+    width: 50%;
   }
 }
