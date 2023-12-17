@@ -14,7 +14,7 @@ export default function loadProfile(data) {
 
   if (storageName === data.name) {
     if (data.avatar === null || data.avatar === "") {
-      return;
+      avatar.src = "../../../images/anonProfile.jpg";
     } else {
       avatar.src = data.avatar;
     }
@@ -27,7 +27,7 @@ export default function loadProfile(data) {
     credits.remove();
     profileBtn.remove();
     if (data.avatar === null || data.avatar === "") {
-      return;
+      avatar.src = "../../../images/anonProfile.jpg";
     } else {
       avatar.src = data.avatar;
     }
