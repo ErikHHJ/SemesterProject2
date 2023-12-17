@@ -457,7 +457,7 @@ export default function loadSingleListing(data, buttons) {
       placeBid(`${baseUrl}listings/${content.id}/bids`, bidAmount);
     });
   });
-  if (!buttons !== undefined) {
+  if (buttons !== undefined) {
     if (content.seller.name === localStorage.getItem("name")) {
       const editBtn = document.createElement("button");
       editBtn.setAttribute("data-bs-toggle", "modal");
