@@ -39,6 +39,7 @@ export default async function specificListingFetch(providedID) {
       }
     } catch (error) {
       showError(`Fetch failed, try again later`);
+      console.log(listingId);
       console.error("Error fetching listing:", error);
     }
   } else {
