@@ -1,5 +1,6 @@
 # Project Exam 1: My Dog-Blog!
-![image](https://gyazo.com/ec2ea21cb66028c18b05c7c64d2244ea)
+![image](https://github.com/ErikHHJ/SemesterProject2/assets/112164843/3d55898c-37f2-4d7f-ae1b-8f74ed55f54d)
+
 
 This site is a submission which was to be graded as the last task for the third semester. In this task, I was to create an auction page, with a provided API.
 ## Description
