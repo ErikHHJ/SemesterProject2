@@ -11,7 +11,7 @@ export default function loadProfile(data) {
   const listings = document.querySelector("#listings");
   const wins = document.querySelector("#wins");
   const credits = document.querySelector("#credits");
-
+  document.title += data.name;
   if (storageName === data.name) {
     if (data.avatar === null || data.avatar === "") {
       avatar.src = "../../../images/anonProfile.jpg";

@@ -11,7 +11,7 @@ export default function loadSingleListing(data, buttons) {
   const container = document.querySelector(".container");
   console.log(data);
   const content = data;
-
+  document.title += content.title;
   const div = createDiv();
 
   const title = document.createElement("h1");
