@@ -1,4 +1,4 @@
-# Project Exam 1: My Dog-Blog!
+# Semester Project 2: BidScape!
 ![image](https://github.com/ErikHHJ/SemesterProject2/assets/112164843/3d55898c-37f2-4d7f-ae1b-8f74ed55f54d)
 
 
