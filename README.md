@@ -44,7 +44,7 @@ git pull
 ### Running
 To run the code: 
 ```bash
-code .
+npm run start
 ```
 
 
